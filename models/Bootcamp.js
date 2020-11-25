@@ -103,7 +103,6 @@ const BootcampSchema = new mongoose.Schema({
 
 //Cascade delete courses when a bootcamp is deleted
 BootcampSchema.pre('remove', async function (next) {
-    console.log("courses deleted from bootcamp : ", this._id)
     await this.model('Course').deleteMany({ bootcamp: this._id })
     next()
 })

@@ -11,7 +11,7 @@ router
 router
     .route('/:id')
     .get(getCourse) 
-    .post(updateCourse)
+    .put(updateCourse)
     .delete(deleteCourse)
 
 module.exports = router
