@@ -1,17 +1,17 @@
 const express = require('express')
-const { getCourses, getCourse, createCourse, deleteCourse, updateCourse } = require('../controllers/courses')
-
+const { getCourses, getCourse, addCourse, deleteCourse, updateCourse } = require('../controllers/courses')
+const { protect } = require('../middleware/auth')
 const router = express.Router({ mergeParams: true })
 
 router
     .route('/')
     .get(getCourses)
-    .post(createCourse)
+    .post(protect, addCourse)
 
 router
     .route('/:id')
     .get(getCourse) 
-    .put(updateCourse)
-    .delete(deleteCourse)
+    .put(protect, updateCourse)
+    .delete(protect, deleteCourse)
 
 module.exports = router

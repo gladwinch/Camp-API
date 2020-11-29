@@ -49,7 +49,7 @@ exports.getCourse = asyncHandler(async (req, res, next) => {
 //@desc       Create courses
 //@route      POST /api/v1/bootcamps/:bootcampId/courses
 //@access     Public
-exports.createCourse = asyncHandler(async (req, res, next) => {
+exports.addCourse = asyncHandler(async (req, res, next) => {
     req.body.bootcamp = req.params.bootcampId
 
     let bootcamp = await Bootcamp.findById(req.params.bootcampId)
