@@ -6,6 +6,6 @@ const router = express.Router()
 router
     .post('/register', register)
     .post('/login', login)
-    .post('/me', getMe)
+    .get('/me', getMe)
 
 module.exports = router
